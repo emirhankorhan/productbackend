@@ -1,4 +1,4 @@
-package com.todolist.todolist.entities;
+package com.stock.stock.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,15 +11,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "todos")
+@Table(name = "products")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Todolist {
+public class Product {
     @Id
     @GeneratedValue
-    @Column(name = "todo_id")
+    @Column(name = "product_id")
     private int id;
 
     @Column(name = "input_text")

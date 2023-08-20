@@ -1,4 +1,4 @@
-package com.todolist.todolist.entities.errorModel;
+package com.stock.stock.entities.errorModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

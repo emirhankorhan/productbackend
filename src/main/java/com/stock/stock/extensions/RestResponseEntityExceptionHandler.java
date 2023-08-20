@@ -1,4 +1,4 @@
-package com.todolist.todolist.extensions;
+package com.stock.stock.extensions;
 
 // import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,8 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 
-import com.todolist.todolist.entities.errorModel.ErrorDetails;
-import com.todolist.todolist.entities.exceptions.NotFoundException;
+import com.stock.stock.entities.errorModel.ErrorDetails;
+import com.stock.stock.entities.exceptions.NotFoundException;
 
 
 @ControllerAdvice

@@ -1,4 +1,4 @@
-package com.todolist.todolist.presentation;
+package com.stock.stock.presentation;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -17,51 +17,51 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.todolist.todolist.entities.Todolist;
-import com.todolist.todolist.services.Contracts.TodolistService;
+import com.stock.stock.entities.Product;
+import com.stock.stock.services.Contracts.ProductService;
 
 @RestController
-@RequestMapping("/api/todos")
+@RequestMapping("/api/products")
 @CrossOrigin
-public class TodolistsController {
-    private final TodolistService todolistService;
+public class ProductsController {
+    private final ProductService productService;
 
-    public TodolistsController(@Qualifier("mysql") TodolistService todolistService) {
-        this.todolistService = todolistService;
+    public ProductsController(@Qualifier("mysql") ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping
-    public ResponseEntity<?> getAllTodolists() {
-        var todolists = todolistService.getAllTodolists();
-        return new ResponseEntity<>(todolists, HttpStatus.OK);
+    public ResponseEntity<?> getAllProducts() {
+        var products = productService.getAllProducts();
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @GetMapping(path = "{id}")
-    public ResponseEntity<Todolist> getOneTodolist(@PathVariable(name = "id") int id) {
-        var todolist = todolistService.getOneTodolistById(id);
-        return ResponseEntity.ok(todolist);
+    public ResponseEntity<Product> getOneProduct(@PathVariable(name = "id") int id) {
+        var product = productService.getOneProductById(id);
+        return ResponseEntity.ok(product);
     }
 
     @PostMapping
-    public ResponseEntity<?> createOneTodolist(@RequestBody Todolist todolist) {
-        todolistService.createOneTodolist(todolist);
-        return new ResponseEntity<>(todolist, HttpStatus.CREATED);
+    public ResponseEntity<?> createOneProduct(@RequestBody Product product) {
+        productService.createOneProduct(product);
+        return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
 
     @PutMapping(path = "{id}")
-    public ResponseEntity<?> updateOneTodolist(@PathVariable(name = "id", required = true) int id,
-            @RequestBody Todolist todolist) {
-        todolistService.updateOneTodolist(id, todolist);
+    public ResponseEntity<?> updateOneProduct(@PathVariable(name = "id", required = true) int id,
+            @RequestBody Product product) {
+        productService.updateOneProduct(id, product);
         return ResponseEntity.ok()
-                .header("location", "http://localhost:8082/api/todos/" + todolist.getId())
-                .body(todolist);
+                .header("location", "http://localhost:8082/api/todos/" + product.getId())
+                .body(product);
     }
 
     @DeleteMapping(path = "{id}")
     @ResponseBody
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public ResponseEntity<Void> deleteOneTodolist(@PathVariable(name = "id", required = true) int id) {
-        todolistService.deleteOneTodolist(id);
+    public ResponseEntity<Void> deleteOneProduct(@PathVariable(name = "id", required = true) int id) {
+        productService.deleteOneProduct(id);
         return ResponseEntity.noContent().build();
     }
 
