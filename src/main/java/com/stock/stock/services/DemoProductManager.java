@@ -18,20 +18,20 @@ public class DemoProductManager implements ProductService {
     @Override
     public List<Product> getAllProducts() {
         var list = new ArrayList<Product>();
-        list.add(new Product(1, "kahve iç", "haziran", "23323", "32"));
-        list.add(new Product(2, "ödev yap", "temmuz", "232323", "32323"));
+        list.add(new Product(1, "kahve iç", "haziran", "da", 23323, 32, 23, "ayakkabı"));
+        list.add(new Product(2, "ödev yap", "sds", "temmuz", 232323, 32323, 3232, "kadın giyim"));
         return list;
     }
 
     @Override
     public Product getOneProductById(int id) {
-        return new Product(2, "ders çalış", "ocak", "23233", "32332");
+        return new Product(2, "ders çalış", "sdsd", "ocak", 23233, 32332, 3232, "kadın giyim");
 
     }
 
     @Override
     public Product createOneProduct(Product product){
-        return new Product(2, "yürüyüş yap", "haziran", "23232", "32323");
+        return new Product(2, "yürüyüş yap", "dsdsd", "haziran", 23232, 32323, 3232, "kadın giyim");
     }
 
     @Override
@@ -42,6 +42,12 @@ public class DemoProductManager implements ProductService {
 
     @Override
     public void deleteOneProduct(int id) {
+        
+        
+    }
+
+    @Override
+    public void deleteAllProducts() {
         
         
     }

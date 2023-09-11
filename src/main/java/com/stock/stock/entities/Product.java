@@ -28,11 +28,20 @@ public class Product {
     @Column(name = "input_date")
     private String inputDate;
 
+    @Column(name = "input_comment")
+    private String inputComment;
+
     @Column(name = "input_code")
-    private String inputCode;
+    private int inputCode;
 
     @Column(name = "input_piece")
-    private String inputPiece;
+    private int inputPiece;
+
+    @Column(name = "input_price")
+    private double inputPrice;
+
+    @Column(name = "input_category")
+    private String inputCategory;
 
     
     

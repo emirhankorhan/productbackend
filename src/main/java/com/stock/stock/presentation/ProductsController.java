@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.stock.stock.entities.Product;
 import com.stock.stock.services.Contracts.ProductService;
 
@@ -53,7 +52,7 @@ public class ProductsController {
             @RequestBody Product product) {
         productService.updateOneProduct(id, product);
         return ResponseEntity.ok()
-                .header("location", "http://localhost:8082/api/todos/" + product.getId())
+                .header("location", "http://localhost:8082/api/products/" + product.getId())
                 .body(product);
     }
 
@@ -65,17 +64,26 @@ public class ProductsController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping
+    @ResponseBody
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    public ResponseEntity<Void> deleteAllProducts() {
+        productService.deleteAllProducts(); // Tüm ögeleri silen metodu çağırın
+        return ResponseEntity.noContent().build();
+    }
+
     // @ExceptionHandler(NotFoundException.class)
     // @ResponseBody
-    // public ResponseEntity<Object> handleException(NotFoundException ex, WebRequest request) {
+    // public ResponseEntity<Object> handleException(NotFoundException ex,
+    // WebRequest request) {
 
-    //     var errordetails = ErrorDetails
-    //             .builder()
-    //             .statusCode(404)
-    //             .message(ex.getMessage())
-    //             .path(request.getDescription(false))
-    //             .build();
-    //     return new ResponseEntity<>(errordetails, HttpStatus.NOT_FOUND);
+    // var errordetails = ErrorDetails
+    // .builder()
+    // .statusCode(404)
+    // .message(ex.getMessage())
+    // .path(request.getDescription(false))
+    // .build();
+    // return new ResponseEntity<>(errordetails, HttpStatus.NOT_FOUND);
     // }
 
 }
