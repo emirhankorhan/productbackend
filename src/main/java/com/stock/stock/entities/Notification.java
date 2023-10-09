@@ -11,20 +11,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "settings")
+@Table(name = "notifications")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Setting {
+public class Notification {
     @Id
     @GeneratedValue
-    @Column(name = "setting_id")
+    @Column(name = "notification_id")
     private int id;
 
-    @Column(name = "setting_danger")
-    private int settingDanger;  
-    
-    @Column(name = "setting_notification")
-    private String settingNotification;
+    @Column(name = "notification_text")
+    private String notificationText;
 }
